@@ -1,0 +1,18 @@
+body {
+    display: grid;
+}
+
+main {
+    margin: 0.5vw;
+    display: grid;
+    grid-template-columns: repeat(20px, 4);
+    grid-template-rows: repeat(auto, 5) ;
+    grid-template-areas: 
+        "funcAC sign func% func/"
+        "digit7 digit8 digit9 func*"
+        "digit4 digit5 digit6 func+"
+        "digit1 digit2 digit3 func-"
+        "digit0 digit0 dot func="
+    ;
+}
+
