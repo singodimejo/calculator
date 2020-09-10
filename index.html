@@ -3,31 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
     <title>Calculator</title>
 </head>
 <body>
     <main id="calculator">
-        <div class="digits">
-            <div class="digit digit0">0</div>
-            <div class="digit digit1">1</div>
-            <div class="digit digit2">2</div>
-            <div class="digit digit3">3</div>
-            <div class="digit digit4">4</div>
-            <div class="digit digit5">5</div>
-            <div class="digit digit6">6</div>
-            <div class="digit digit7">7</div>
-            <div class="digit digit8">8</div>
-            <div class="digit digit9">9</div>
+        <div class="res"></div>
+        <div class="firstRow">
+            <button class="function">AC</button>
+            <button class="function">%</button>
+            <button class="function">+/-</button>
+            <button class="function">/</button>
         </div>
-        <div class="functions">
-            <div class="function"></div>
-            <div class="function"></div>
-            <div class="function"></div>
-            <div class="function"></div>
-            <div class="function"></div>
-            <div class="function"></div>
-            <div class="function"></div>
-            <div class="function"></div>
+        <div class="secondRow">
+            <button class="digits">7</button>
+            <button class="digits">8</button>
+            <button class="digits">9</button>
+            <button class="function">*</button>
+        </div>
+        <div class="thirdRow">
+            <button class="digits">4</button>
+            <button class="digits">5</button>
+            <button class="digits">6</button>
+            <button class="function">-</button>
+        </div>
+        <div class="fourthRow">
+            <button class="digits">1</button>
+            <button class="digits">2</button>
+            <button class="digits">3</button>
+            <button class="function">+</button>
+        </div>
+        <div class="lastRow">
+            <button class="digit">0</button>
+            <button class="function funcDot">.</button>
+            <button class="function funcRes">=</button>
         </div>
     </main>
 </body>

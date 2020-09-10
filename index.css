@@ -2,17 +2,53 @@ body {
     display: grid;
 }
 
-main {
-    margin: 0.5vw;
-    display: grid;
-    grid-template-columns: repeat(20px, 4);
-    grid-template-rows: repeat(auto, 5) ;
-    grid-template-areas: 
-        "funcAC sign func% func/"
-        "digit7 digit8 digit9 func*"
-        "digit4 digit5 digit6 func+"
-        "digit1 digit2 digit3 func-"
-        "digit0 digit0 dot func="
-    ;
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+main {
+    margin: 0.75vw;
+    width: 20rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+button {
+    margin: 0;
+    width: 4rem;
+    height: 3rem;
+}
+
+.res {
+    border: 0.05rem solid black;
+    width: 16.75rem;
+    height: 2.5rem;
+}
+
+.lastRow {
+    align-self: center;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 3rem ;
+    grid-template-areas: 
+    "digit funcDot funcRes";
+    grid-gap: 0.375rem;
+}
+
+.lastRow .digit {
+    grid-area: digit ;
+    width: 100%;
+}
+
+.lastRow .funcDot {
+    grid-area: funcDot ;
+}
+
+.lastRow .funcRes {
+    grid-area: funcRes ;
+}
