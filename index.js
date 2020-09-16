@@ -10,6 +10,34 @@ digits.forEach(el => el.addEventListener('click', event => {
     res.innerHTML = res.innerHTML + event.target.innerHTML;
 }));
 
+//AC Function
+let AC = document.getElementById('ac');
+let clearAll = () => {
+    data = [];
+    res.innerHTML = ''
+};
+AC.addEventListener('click', clearAll);
+
+//sign set function
+let sign = document.getElementById('sign')
+let signSet = () => {
+    let txt = [ ...res.innerHTML ];
+    if (txt[0] !== "-") {
+        txt.unshift("-");
+    } else {
+        txt.shift();
+    }
+    res.innerHTML = txt.join('');
+};
+sign.addEventListener('click', signSet);
+
+//percent function
+let percent = document.getElementById('percent');
+let percentage = () => {
+    res.innerHTML = parseFloat(parseFloat(res.innerHTML) / 100).toFixed(9);
+};
+percent.addEventListener('click', percentage);
+
 //addition function
 let plus = document.getElementById('add');
 
@@ -111,6 +139,7 @@ let resCall = () => {
         data.pop();
         res.innerHTML = data[0];
     }
+    return data[1];
 };
 
 equal.addEventListener('click', resCall);
