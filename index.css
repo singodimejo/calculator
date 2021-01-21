@@ -18,6 +18,9 @@ button {
     margin: 0;
     width: 4rem;
     height: 3rem;
+    background-color: lightblue;
+    border-radius: 5%;
+    border-width: 0.1em;
 }
 
 .res {
@@ -34,25 +37,3 @@ button {
     font-size: 1.5em ;
 }
 
-.lastRow {
-    align-self: center;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: 3rem ;
-    grid-template-areas: 
-    "digit funcDot funcRes";
-    grid-gap: 0.375rem;
-}
-
-.lastRow .digits {
-    grid-area: digit ;
-    width: 100%;
-}
-
-.lastRow .funcDot {
-    grid-area: funcDot ;
-}
-
-.lastRow .funcRes {
-    grid-area: funcRes ;
-}

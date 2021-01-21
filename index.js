@@ -33,7 +33,7 @@ let signSet = () => {
         txt.shift();
     }
     res.innerHTML = txt.join('');
-    data[0] = res.innerHTML;
+    data[0] = parseFloat(res.innerHTML);
 };
 sign.addEventListener('click', signSet);
 
@@ -41,7 +41,7 @@ sign.addEventListener('click', signSet);
 let percent = document.getElementById('percent');
 let percentage = () => {
     res.innerHTML = parseFloat(parseFloat(res.innerHTML) / 100);
-    data[0] = res.innerHTML;
+    data[0] = parseFloat(res.innerHTML);
 };
 percent.addEventListener('click', percentage);
 
@@ -53,7 +53,7 @@ let dotSet = () => {
     } else {
         res.innerHTML = res.innerHTML + '.'
     }
-    data[0] = res.innerHTML;
+    data[0] = parseFloat(res.innerHTML);
 };
 dot.addEventListener('click', dotSet)
 
@@ -142,3 +142,18 @@ let resCall = () => {
 };
 
 equal.addEventListener('click', resCall);
+
+//delete function
+let del = document.getElementById('delete')
+let backspace = () => {
+    let txt = [ ...res.innerHTML ];
+    let emptyTxt = [];
+    if (txt !== emptyTxt) {
+        txt.pop();
+    } else {
+        txt = [];
+    }
+    res.innerHTML = txt.join('');
+    data[0] = parseFloat(res.innerHTML);
+};
+del.addEventListener('click', backspace);
