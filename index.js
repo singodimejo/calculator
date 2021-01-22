@@ -33,7 +33,11 @@ let signSet = () => {
         txt.shift();
     }
     res.innerHTML = txt.join('');
-    data[0] = parseFloat(res.innerHTML);
+    if (!data[1]) {
+        data[0] = parseFloat(parseFloat(res.innerHTML).toFixed(3));
+    } else {
+        data[2] = parseFloat(parseFloat(res.innerHTML).toFixed(3));
+    };
 };
 sign.addEventListener('click', signSet);
 
@@ -41,7 +45,11 @@ sign.addEventListener('click', signSet);
 let percent = document.getElementById('percent');
 let percentage = () => {
     res.innerHTML = parseFloat(parseFloat(res.innerHTML) / 100);
-    data[0] = parseFloat(res.innerHTML);
+    if (!data[1]) {
+        data[0] = parseFloat(parseFloat(res.innerHTML).toFixed(3));
+    } else {
+        data[2] = parseFloat(parseFloat(res.innerHTML).toFixed(3));
+    };
 };
 percent.addEventListener('click', percentage);
 
@@ -53,7 +61,11 @@ let dotSet = () => {
     } else {
         res.innerHTML = res.innerHTML + '.'
     }
-    data[0] = parseFloat(res.innerHTML);
+    if (!data[1]) {
+        data[0] = parseFloat(parseFloat(res.innerHTML).toFixed(3));
+    } else {
+        data[2] = parseFloat(parseFloat(res.innerHTML).toFixed(3));
+    };
 };
 dot.addEventListener('click', dotSet)
 
@@ -154,6 +166,35 @@ let backspace = () => {
         txt = [];
     }
     res.innerHTML = txt.join('');
-    data[0] = parseFloat(res.innerHTML);
+    if (!data[1]) {
+        data[0] = parseFloat(parseFloat(res.innerHTML).toFixed(3));
+    } else {
+        data[2] = parseFloat(parseFloat(res.innerHTML).toFixed(3));
+    };
 };
 del.addEventListener('click', backspace);
+
+//keyboard support
+let keyDetect = (event) => {
+    const operators = ["+", "-", "*", "/", ".", "%", "Backspace","="];
+    if (isFinite(event.key)) {
+        res.innerHTML = res.innerHTML + event.key;
+        if (!data[1]) {
+            data[0] = parseFloat(parseFloat(res.innerHTML).toFixed(3));
+        } else {
+            data[2] = parseFloat(parseFloat(res.innerHTML).toFixed(3));
+        };
+    } else if (operators.includes(event.key) && !!data[0]) {
+        event.key === operators[0] ? addition()
+            : event.key === operators[1] ? substraction()
+            : event.key === operators[2] ? multiplication()
+            : event.key === operators[3] ? division()
+            : event.key === operators[4] ? dotSet()
+            : event.key === operators[5] ? percentage()
+            : event.key === operators[6] ? backspace()
+            : resCall();
+    } else {
+        res.innerHTML = res.innerHTML;
+    };
+};
+document.addEventListener('keydown', keyDetect)
